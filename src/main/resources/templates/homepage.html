@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<script src="jscolor.js"></script>
+<head th:replace="template :: dochead">
+<style>
+table, th, td {
+    border: 2px solid black;padding:0;margin:0;
+    }
+Add a new class jscolor to all desired <input> or <button> elements:
+<input class="jscolor">
+.imgholder{
+width:300px;
+height:100px;
+}
+
+img{
+width:100%;height:100%;
+}
+.steps{
+font-size:20px;
+}
+.indent{
+ text-align:right; 
+}
+.leftmargin{
+ margin-left:2cm;
+ }
+</style>
+</head>
+
+<body>
+<div class="steps" width="100%"> Select the room you want to transform:</div>
+<table style="width:100%">
+  <tr>
+    <th>KITCHEN</th>
+    <th>BEDROOM</th> 
+    <th>LIVINGROOM</th>
+  </tr>
+ 
+ <tr>
+    <td class="imgholder">
+       <img src="https://iss.zillowstatic.com/image/traditional-kitchen-with-subway-tile-breakfast-bar-and-crown-molding-i_g-IS1fw5mhhscs5q1000000000-9RPBL.jpg">
+    </td>
+
+    <td class="imgholder">
+       <img src="http://cdn.home-designing.com/wp-content/uploads/2009/06/purple-bedroom.jpg">
+    </td>
+    
+    <td class="imgholder">
+       <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRWp1vZOXi-kf28ggJhBAb57yg9pnvZGgJ35gdaR5SUZmba84odVQ">
+    </td>
+    
+  </tr>
+ </table>
+<div class="steps leftmargin" width="100%">Choose your wall color:</div>
+</body>
+</html>
+
+**************************************************************************************************************
+Quick installation
+
+Include jscolor.js in your web page:
+<script src="jscolor.js"></script>
+Add a new class jscolor to all desired <input> or <button> elements:
+<input class="jscolor">
+*********************************************************************************

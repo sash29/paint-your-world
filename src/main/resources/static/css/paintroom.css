@@ -1,0 +1,68 @@
+ body{
+    	font-family: cursive;
+    }
+    p {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    }  
+    .tcont{
+        display:block;
+    }
+    .cont1{
+        font-size:32px;
+    }
+    .cont2{
+        font-size:32px;
+    }
+    .cont2{
+        font-size:26px;
+    }
+
+    #chosencolor{
+      width:80px;
+      height:80px;
+      font-size: 12px;
+      font-family:fantasy;
+      padding: 2px; 
+    }
+    .roomcontent {
+        position:absolute;
+        top:10vw;
+        left:25vw;
+        width: 678px;
+        height: 680px;
+        margin: 10px;
+      }
+      .literally {
+        width: 100%;
+        height: 100%;
+        position:relative;
+        background-color: lightgrey;
+      }
+      
+       #transf_div{
+        position: relative;
+        top:10vw;
+        
+    }
+    #company_name_div{
+        position:absolute;
+        top:20px;
+        left:30vw;
+        height:auto;
+        width:420px;
+    }
+    #logoimg{
+        position:absolute;
+        width:100%;
+        height:auto;
+    }
+    #tranf_desc{
+        display:inline-block;
+        width:1100px;
+    }
+    
+ 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <link th:href="@{/css/masthead.css}" rel="stylesheet" />
+    <link th:href="@{/css/normalize.css}" rel="stylesheet" />
+	<link th:href="@{/css/styles.css}" rel="stylesheet" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/scripts/rooms.js?v=1"></script>
+    <style>
+    .roomtb{
+    padding:2px;
+    }
+    </style>
+</head>
+<body>
+   <script type="text/javascript" th:inline="javascript">
+     var rms = /*[[${rooms}]]*/ [];
+   </script>
+
+   <div th:replace="template :: masthead"></div>
+   <div th:replace="template :: navigation"></div>
+
+	<h1>Rooms</h1>
+	<h3>These are all the rooms you have saved.</h3>
+    <p class="error" th:text="${error}"></p>
+    <div id="rooms">
+    </div>
+
+</body>
+</html>

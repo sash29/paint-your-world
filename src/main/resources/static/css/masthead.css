@@ -1,0 +1,12 @@
+   #company_name_div{
+        position:absolute;
+        top:25px;
+        left:36vw;
+        height:auto;
+        width:420px;
+    }
+    #logoimg{
+        position:absolute;
+        width:100%;
+        height:auto;
+    }

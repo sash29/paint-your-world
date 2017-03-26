@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+  <head>
+  
+    <title>View Transformation</title>  
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/scripts/literallycanvas-core.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"/>
+    <link href="/css/literallycanvas.css?v=1" rel="stylesheet"/>
+    <script src="/scripts/paintroom.js?v=2"></script>
+    <link th:href="@{/css/masthead.css}" rel="stylesheet" />	
+    <link th:href="@{/css/normalize.css}" rel="stylesheet" />
+	<link th:href="@{/css/styles.css}" rel="stylesheet" />
+    <link th:href="@{/css/paintroom.css}" rel="stylesheet" />
+  	
+  </head>
+  <body>
+    <div th:replace="template :: masthead"></div>
+    <div th:replace="template :: navigation"></div>
+
+    <div class="roomcontent">
+      <div class="tcont cont1">Paint your transformation </div>
+      <div id="roompaintlc"> 
+      </div>
+      <span id="chosencolor" >Chosen Color</span> 
+      <span class="tools">
+        |
+        <a id="tool-pencil">Brush</a>
+        |
+        <a id="tool-rectangle">Rectangle</a>
+        |
+        <a id="tool-line">Line</a>
+        |
+        <a id="tool-polygon">Shapes</a>
+        |
+        <a id="tool-eraser">Eraser</a>
+        |
+        <form class="imgur-submit">
+          <input id="uploadtoimgur" type="button" data-action="Save and upload-to-imgur" value="Upload to Imgur"/>
+        </form>
+      </span>
+      <span id="imgururl">
+      </span>
+    </div>   
+
+   <form id="paintroomform"  method="post">
+     <input type="text" id="txtcolor" name="selcolor" style="display:none" th:value="${selcolor}"></input>
+     <input type="text" id="txtroom"  name="selroom" style="display:none" th:value="${selroom}"></input>
+     <input type="text" id="txtimgururl" name="imgururl" style="display:none" th:value="${imgururl}"></input>
+   </form>
+
+  </body>
+</html>

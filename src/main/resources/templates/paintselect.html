@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+  <head>
+      
+    <title>Paint my World</title>  
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+    <script src="/scripts/paintselect.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+    
+    <link th:href="@{/css/masthead.css}" rel="stylesheet" />	
+    <link th:href="@{/css/paintselect.css}" rel="stylesheet" />
+    <link th:href="@{/css/normalize.css}" rel="stylesheet" />
+	<link th:href="@{/css/styles.css}" rel="stylesheet" />
+   </head> 
+  
+  <body>
+   <div th:replace="template :: masthead"></div>
+   <div th:replace="template :: navigation"></div>
+
+  <div id="transf_div">
+    <span id="tranf_desc">Want to know the color you pick will transform your room ? Wish you could "see" how it will look before you even buying a sample ? Now you can do just that in just 3 steps. First select a room you want to transform. Second select from our paint pallete. Third Transform by paint the walls with your chosen color.
+    </span>
+   
+     <div class="roomcontent">
+	   <div class="tcont cont1">1. Select the room you want to transform </div>
+	   <div class="roomsholderdiv" id="roomsholderdiv-seldiv">
+		<div class="roomspan ui-widget-content"> <img id="lr-1" class="thumbnail" src="/images/lr-1.jpg"/></div>
+		<div class="roomspan ui-widget-content"> <img id="br-1" class="thumbnail" src="/images/br-1.jpg"/></div>
+		<div class="roomspan ui-widget-content"> <img id="kr-1" class="thumbnail" src="/images/kr-1.jpg"/></div>
+	   </div>
+     </div>	
+    
+
+    
+     <div class="colorpalcontent">
+	   <div class="tcont cont2">2. Choose your wall color</div>
+	   <div class="tcont cont3">Palettes</div>
+  	   <div id="div_colorfamily" class="toolbar"></div>
+     </div>
+    
+
+    
+      <div id="colorchoosecontent_div">
+       <div id="div_colframe"></div>
+       <span id="colorname"></span>
+       <span id="chosencolor"></span>
+      </div>
+    
+      <form id="submitform" method="post">
+          <input id="formroom" name="selroom" style="display:none" type="text"></input>
+          <input id="formcolor" name="selcolor" style="display:none" type="text"></input>
+          <button id="go">Transform</button>
+      </form>
+      
+    
+ 
+   </div>
+
+ <script type="text/javascript">
+    
+    pricol_ar = [{id:'red',title:"REDS"},{id:'orange',title:"ORANGES"},{id:"yellow",title:"YELLOWS"},{id:"green",title:"GREENS"},{id:"blue",title:"BLUES"},{id:"purple",title:"PURPLES"},{id:"neutral",title:"NEUTRALS"}];
+
+    col_reds=[{id:'lgtsalmon',name:"Light Salmon",hexcode:"#FFA07A"},{id:'salmon',name:"Salmon",hexcode:"#FA8072"},{id:'drksalmon',name:"Dark Salmon",hexcode:"#E9967A"},{id:'lgtcoral',name:"Light Coral",hexcode:"#F08080"},{id:'indred',name:"Indian Red",hexcode:"#CD5C5C"},{id:'crims',name:"Crimson",hexcode:"#DC143C"},{id:'red',name:"Red",hexcode:"#FF0000"},{id:'firebrick',name:"Fire Brick",hexcode:"#B22222"},{id:'drkred',name:"Dark Red",hexcode:"#8B0000"}]
+
+    col_orange = [{id:'orange',name:"Orange",hexcode:"#FFA500"},{id:'drkorange',name:"Dark Orange",hexcode:"#FF8C00"},{id:'coral',name:"Coral",hexcode:"#FF7F50"},{id:'tomato',name:"Tomato",hexcode:"#FF6347"},{id:'orgred',name:"Orange Red",hexcode:"#FF4500"}];
+
+    col_yellow =[{id:'yellow',name:"Yellow",hexcode:"#FFFF00"},{id:'lgtyellow',name:"Light Yellow",hexcode:"#FFFFE0"},{id:'lemchiffon',name:"Lemon Chiffon",hexcode:"#FFFACD"},{id:'peachpuff',name:"Peach Puff",hexcode:"#FFDAB9"},{id:'khaki',name:"Khaki",hexcode:"#F0E68C"},{id:'drkkhaki',name:"Dark Khaki",hexcode:"#BDB76B"}];
+
+    col_green = [{id:'charteuse',name:"Charteuse",hexcode:"#7FFF00"},{id:'lime',name:"Lime",hexcode:"#00FF00"},{id:'limegreen',name:"Lime Green",hexcode:"#32CD32"},{id:'lightgreen',name:"Light Green",hexcode:"#90EE90"},{id:'seagreen',name:"Sea Green",hexcode:"#2E8B57"},{id:'green',name:"Green",hexcode:"#008000"},{id:'darkgreen',name:"Dark Green",hexcode:"#006400"},{id:'olivedrab',name:"Olive Drab",hexcode:"#6B8E23"},{id:'darkolive',name:"Dark Olive",hexcode:"#556B2F"},{id:'darkcyan',name:"Dark Cyan",hexcode:"#008B8B"},{id:'teal',name:"Teal",hexcode:"#008080"}];
+
+
+    col_blue = [{id:'steelblue',name:"Steel Blue",hexcode:"#4682B4"},{id:'lightblue',name:"Light Blue",hexcode:"#ADD8E6"},{id:'skyblue',name:"Sky Blue",hexcode:"#87CEEB"},{id:'cornflowerblue',name:"Corn Flower Blue",hexcode:"#6495ED"},{id:'deepskyblue',name:"Deep Sky Blue",hexcode:"#00BFFF"},{id:'royalblue',name:"Royal Blue",hexcode:"#4169E1"},{id:'blue',name:"Blue",hexcode:"#0000FF"},{id:'darkblue',name:"Dark Blue",hexcode:"#00008B"},{id:'navy',name:"Navy",hexcode:"#000080"},{id:'midnightblue',name:"Mid Night Blue",hexcode:"#191970"}];
+
+    col_purple = [{id:'lavender',name:"Lavender",hexcode:"#E6E6FA"},{id:'thistle',name:"Thistle",hexcode:"#D8BFD8"},{id:'plum',name:"Plum",hexcode:"#DDA0DD"},{id:'orchid',name:"Orchid",hexcode:"#DA70D6"},{id:'violet',name:"Violet",hexcode:"##EE82EE"},{id:'fuchsia',name:"Fuchsia",hexcode:"#FF00FF"},{id:'purple',name:"Purple",hexcode:"#800080"},{id:'slateblue',name:"Slate Blue",hexcode:"#6A5ACD"},{id:'indigo',name:"Indigo",hexcode:"#4B0082"}];
+
+    col_neutral = [{id:'cornsilk',name:"Corn Silk",hexcode:"#FFF8DC"},{id:'bisque',name:"Bisque",hexcode:"#FFE4C4"},{id:'wheat',name:"Wheat",hexcode:"#F5DEB3"},{id:'tan',name:"Tan",hexcode:"#D2B48C"},{id:'sienna',name:"Sienna",hexcode:"#A0522D"},{id:'mintcream',name:"Mint Cream",hexcode:"#F5FFFA"},{id:'azure',name:"Azure",hexcode:"#F0FFFF"},{id:'ghostwhite',name:"CGhost White",hexcode:"#F8F8FF"},{id:'biege',name:"Biege",hexcode:"#F5F5DC"},{id:'silver',name:"Silver",hexcode:"#C0C0C0"},{id:'gray',name:"Gray",hexcode:"#808080"}];
+
+
+
+
+    $().ready(function(){
+    	createcolorfamily("div_colorfamily");
+    	createcolorboxes("red");
+    	/*
+    	$( "button, input, a" ).click( function( event ) {
+           event.preventDefault();
+         } );
+         */
+
+    	addcolboxhover();
+
+    	$(".colorselector").on("click", function(e){
+    		obj = e.target.id;
+    		clr = obj.split('-')[1];
+    		console.log(clr);
+    		createcolorboxes(clr);
+    		addcolboxhover();
+    	});    		
+
+    	$("#go").click(function(){
+    		dummysubmit();
+    	});
+
+    	$("#roomsholderdiv-seldiv").selectable();
+    });
+
+    </script>
+ </body>
+
+</html>
