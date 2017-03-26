@@ -8,17 +8,26 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="/scripts/rooms.js?v=1"></script>
     <style>
-    .roomtb{
-    padding:2px;
+    #rooms{
+      display:grid;
+      grid-template-columns: 170px 170px 170px;
+      grid-template-rows: auto;
+    }
+    .roomhldr{
+      display:float;
+    }
+    .roomthbn{
+      padding:2px;
+      margin:1px grey;
     }
     </style>
 </head>
 <body>
    <script type="text/javascript" th:inline="javascript">
-     var rms = /*[[${rooms}]]*/ [];
+     var rms1 = /*[[${rooms}]]*/ [];
+     var rms = JSON.parse(rms1);
    </script>
 
-   <div th:replace="template :: masthead"></div>
    <div th:replace="template :: navigation"></div>
 
 	<h1>Rooms</h1>

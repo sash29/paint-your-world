@@ -7,23 +7,24 @@
 </head>
 
 <body>
- <div th:fragment="masthead">
+ 
+<nav th:fragment="navigation">
+  <div id="masthead">
     <div id="company_name_div">
          <img id="logoimg" src="/images/masthead.png"/>
     </div>   
- </div>
- 
-<nav th:fragment="navigation">
-	<p class="info" th:text="${logged_user}"></p>
-	<ul id="user-account">
-	    <li><a href="/login">login</a></li>
-	    <li><a href="/logout">logout</a></li>
-	</ul>
 	<ul>
         <li><a href="/paintselect">home</a></li>
         <li><a href="/rooms">all rooms</a></li>
+	    <li><a href="/login">login</a></li>
+	    <li><a href="/logout">logout</a></li>
+	    <li><a href="/About Us">About Us</a></li>
+	    <li><a href="/Contact Us">Contact Us</a></li>
+	    
     </ul>
     <p class="info" th:text="${status_msg}"></p>
+  </div>
+	
 </nav>
 
 </body>

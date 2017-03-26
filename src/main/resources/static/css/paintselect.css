@@ -7,8 +7,8 @@
     margin-bottom: 1em;
     margin-left: 0;
     margin-right: 0;
-  }  
-   
+  }
+
 .thumbnail{
     	width:180px;
     	height:180px;
@@ -38,7 +38,7 @@
     	border:1px;
     	float:left;
     }
-    
+
     .thumbnail.ui-selecting {
     	border:1px solid #FECA40;
     }
@@ -48,7 +48,7 @@
         display:inline-block;
     	border:1px solid lightgray;
     	padding: 3px;
-    	margin:auto;	
+    	margin:auto;
     }
     .submitbtn{
     	font-size: 22px;
@@ -73,13 +73,13 @@
     	vertical-align: bottom;
     	font-size: 12px;
     	font-family:fantasy;
-    	padding: 2px;	
+    	padding: 2px;
     }
-    
+
     #transf_div{
         position: relative;
-        top:10vw;
         
+
     }
     #tranf_desc{
         display:inline-block;

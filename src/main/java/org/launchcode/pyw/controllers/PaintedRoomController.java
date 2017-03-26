@@ -1,11 +1,15 @@
 package org.launchcode.pyw.controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Iterator;
 import java.util.List;
+
+import org.json.JSONObject;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -92,41 +96,44 @@ public class PaintedRoomController extends AbstractController {
 	@RequestMapping(value = "rooms", method = RequestMethod.GET)
 	public String viewrooms(HttpServletRequest request, Model model) {
 		HttpSession thisSession = request.getSession();
-		User author = getUserFromSession( thisSession);
-		
-		
-		ArrayList<Map> rmList = new ArrayList();
-		
-		List<PaintedRoom> prml = author.getPaintedRooms();
-		
-		for(Iterator<PaintedRoom> prl=prml.iterator();prl.hasNext();){
-			PaintedRoom pr = prl.next();
-			String rm = pr.getroomname();
-			String imgururl = pr.getimgururl();
-			Map<String, String>prmmap= new HashMap<String, String>();
-			prmmap.put("rm",rm);
-			prmmap.put("imgururl", imgururl);
-			System.out.println(prmmap.toString());
-			rmList.add(prmmap);
+		Boolean isloggedin = isUserLoggedIn(thisSession);
+		String retStr = "paintselect";
+
+		if(isloggedin){
+			System.out.println("is logged in");
+			User author = getUserFromSession( thisSession);
+			ArrayList<JSONObject> rmList = new ArrayList();
+			
+			List<PaintedRoom> prml = author.getPaintedRooms();
+			SimpleDateFormat frmt = new SimpleDateFormat("d/MMM/yy");
+			
+			for(Iterator<PaintedRoom> prl=prml.iterator();prl.hasNext();){
+				PaintedRoom pr = prl.next();
+				String rm = pr.getroomname();
+				String imgururl = pr.getimgururl();
+				Date rmcrdate = pr.getCreated();
+				JSONObject prmmap = new JSONObject();
+
+				//prmmap= new HashMap<String, String>();
+				prmmap.put("rm",rm);
+				prmmap.put("imgururl", imgururl);
+				
+				prmmap.put("createdon", frmt.format(rmcrdate));
+				//TO_DO
+				/// Add color
+				System.out.println(prmmap.toString());
+				rmList.add(prmmap);
+				System.out.println(rmList.toString());
+				model.addAttribute("rooms",rmList.toString());
+			}
+			
+			retStr =  "rooms";			
+		}else{
+			model.addAttribute("status_msg","You have to be logged in.");
 		}
-		System.out.println(rmList.toString());
-		model.addAttribute("rooms",rmList);
 		
-		return "rooms";
+		return retStr;
+
 	}
 	
 }
-	/*
-	@RequestMapping(value = "/blog/{username}", method = RequestMethod.GET)
-	public String userPosts(@PathVariable String username, Model model) {
-		
-		// TODO - implement userPosts
-		//get all of the user's posts
-		User correspondingUsr = userDao.findByUsername(username);
-		List<Post> allPosts= correspondingUsr.getPosts();
-		//pass the posts into the template
-		model.addAttribute("posts",allPosts);
-		
-		return "blog";
-	}
-	*/

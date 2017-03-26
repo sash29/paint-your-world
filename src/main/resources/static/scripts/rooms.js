@@ -6,6 +6,8 @@
       for(var i=0;i<rms.length;i++){
          console.log("in load");
          imgurl = rms[i].imgururl;
+         rm = rms[i].rm;
+         crdt = rms[i].createdon;
          imgid = imgurl.substring(imgurl.lastIndexOf("/") + 1, imgurl.length);
          console.log(imgid);
          gurl = "https://api.imgur.com/3/image/" + imgid;
@@ -21,7 +23,9 @@
              console.log(result.data);
              link = result.data.link;
              console.log(link);
-             $("#rooms").append("<img class='roomtb' src=" + link.replace(".png","s.png") + "></img>");
+             $("#rooms").append("<div class='roomhldr'><a href='" + link + "'><img class='roomthbn' src=" + 
+             link.replace(".png","t.png") + "></img></a>" + 
+             " <span class='roomdesc'>" +rm +" - created on " + crdt + "</span></div>" );
           },
         });
 
