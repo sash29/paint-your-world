@@ -2,12 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org/">
   <head>
       
-    <title>Paint my World</title>  
+    <title>Paint your World</title>  
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+   <!-- importing generic system defined jquery files so that paintselect.js can use stuff from there -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   
     <script src="/scripts/paintselect.js"></script>
+   <!-- importing stylesheet files so that paintselect.js can use stuff from there -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
     
@@ -21,7 +23,7 @@
    <div th:replace="template :: navigation"></div>
 
   <div id="transf_div">
-    <span id="tranf_desc">Want to know the color you pick will transform your room ? Wish you could "see" how it will look before you even buying a sample ? Now you can do just that in just 3 steps. First select a room you want to transform. Second select from our paint pallete. Third Transform by paint the walls with your chosen color.
+    <span id="tranf_desc">Want to see how your favorite shade looks on the walls before buying a sample? You can do just that in 3 steps. 
     </span>
    
      <div class="roomcontent">
@@ -33,7 +35,6 @@
 	   </div>
      </div>	
     
-
     
      <div class="colorpalcontent">
 	   <div class="tcont cont2">2. Choose your wall color</div>
@@ -41,7 +42,6 @@
   	   <div id="div_colorfamily" class="toolbar"></div>
      </div>
     
-
     
       <div id="colorchoosecontent_div">
        <div id="div_colframe"></div>

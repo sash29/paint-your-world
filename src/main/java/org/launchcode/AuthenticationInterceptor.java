@@ -18,6 +18,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     UserDao userDao;
 
+    
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
 
@@ -28,6 +29,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
         	boolean isLoggedIn = false;
         	User user;
+        	//get session frm request, then get uid frm that session, then convert it into Integer and assign to variable
             Integer userId = (Integer) request.getSession().getAttribute(AbstractController.userSessionKey);
 
             if (userId != null) {

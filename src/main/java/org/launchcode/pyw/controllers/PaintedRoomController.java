@@ -35,10 +35,10 @@ public class PaintedRoomController extends AbstractController {
 	public String topaintselect(HttpServletRequest request, Model model) {
 		return "paintselect";
 	}
-	
-	@RequestMapping(value = "paintselect", method = RequestMethod.POST)
+
+	@SuppressWarnings("deprecation")
+	@RequestMapping(value = "paintselect", method = RequestMethod.POST)//method gets activated when "transform" button is clicked
 	public String paintselected(HttpServletRequest request, Model model) {
-		
 		//get request parameters
 		String selrm = request.getParameter("selroom") ;
 		String selcol = request.getParameter("selcolor") ;
@@ -56,17 +56,19 @@ public class PaintedRoomController extends AbstractController {
 			model.addAttribute("selcolor", selcol);
 			model.addAttribute("selroom", selrm);
 			retStr = "redirect:/paintroom";
-		}else{
+		}else
+		{
 			model.addAttribute("status_msg","You must be logged in.");
 		}
 		return retStr;
-		
 	}
 	
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "paintroom", method = RequestMethod.GET)
 	public String topaintroom(HttpServletRequest request, Model model) {
 		HttpSession thisSession = request.getSession();
 		
+	//	@SuppressWarnings("deprecation")
 		String selrm = thisSession.getValue("selroom").toString() ;
 		String selcol =  thisSession.getValue("selcolor").toString() ;
 		System.out.println("paintselect : " + selrm);
@@ -92,7 +94,7 @@ public class PaintedRoomController extends AbstractController {
 		PaintedRoomDao.save(prm);
 		return "paintselect";
 	}
-	
+
 	@RequestMapping(value = "rooms", method = RequestMethod.GET)
 	public String viewrooms(HttpServletRequest request, Model model) {
 		HttpSession thisSession = request.getSession();
@@ -121,6 +123,7 @@ public class PaintedRoomController extends AbstractController {
 				prmmap.put("createdon", frmt.format(rmcrdate));
 				//TO_DO
 				/// Add color
+				
 				System.out.println(prmmap.toString());
 				rmList.add(prmmap);
 				System.out.println(rmList.toString());

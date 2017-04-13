@@ -82,7 +82,7 @@ public class AuthenticationController extends AbstractController {
 		String redirectStr = "";
 		System.out.println("username and password are "+givenUsrname +" " +givenPswd);
 		
-		if (!member.isValidUsername(givenUsrname))//check if username is correct
+		if (!User.isValidUsername(givenUsrname))//check if username is correct
 		{ 
 		
 			model.addAttribute("login_error","This user doesnt exist! Please signup or enter existing user.");
