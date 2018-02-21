@@ -116,4 +116,9 @@ public class AuthenticationController extends AbstractController {
         model.addAttribute("logged_user",nlg_str);
 		return "redirect:paintselect";
 	}
+	@RequestMapping(value = "/AboutUs&ContactUs", method = RequestMethod.GET)
+	public String aboutUs() {
+		System.out.println("historyNcontact requested");
+		return "AboutUs&ContactUs";
+	}
 }

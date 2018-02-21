@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:fragment="dochead">
+<head lang="en" th:fragment="dochead">
 	<link th:href="@{/css/normalize.css}" rel="stylesheet" />
 	<link th:href="@{/css/styles.css}" rel="stylesheet" />
 	<title>Blogz</title>
@@ -9,19 +9,17 @@
 
 <body>
  
-<nav th:fragment="navigation">
+ <nav th:fragment="navigation">
   <div id="masthead">
      <div id="company_name_div">
          <img id="logoimg" src="/images/masthead.png"/>
-    </div>   
+     </div>   
 	<ul>
-        <li><a href="/paintselect">home</a></li>
-        <li><a href="/rooms">all rooms</a></li>
-	    <li><a href="/login">login</a></li>
-	    <li><a href="/logout">logout</a></li>
-	    <li><a href="/About Us">About Us</a></li>
-	    <li><a href="/Contact Us">Contact Us</a></li>
-	    
+        <li><a href="/paintselect">Home</a></li>
+        <li><a href="/rooms">Gallery</a></li>
+	    <li><a href="/login">Login</a></li>
+	    <li><a href="/logout">Logout</a></li>
+	    <li><a href="/AboutUsContactUs">About Us/Contact Us</a></li>
     </ul>
     <p class="info" th:text="${status_msg}"></p>	
   </div>  

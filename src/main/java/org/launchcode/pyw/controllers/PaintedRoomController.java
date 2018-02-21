@@ -138,5 +138,9 @@ public class PaintedRoomController extends AbstractController {
 		return retStr;
 
 	}
-	
+/*	@RequestMapping(value = "/AboutUs&ContactUs", method = RequestMethod.GET)
+	public String aboutUs() {
+		System.out.println("historyNcontact requested");
+		return "AboutUs&ContactUs";
+	}*/
 }

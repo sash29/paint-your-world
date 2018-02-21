@@ -1,6 +1,8 @@
  body{
     font-family:cursive;
-}
+    background-color: #FFCC00;
+	}
+	
  p {
     display: block;
     margin-top: 1em;
@@ -17,7 +19,7 @@
     }
     .roomspan{
     	display:inline-block;
-    	border:1px solid lightgray;
+    	border:5px solid royalblue;
     	padding:2px;
     	margin:auto;
     }
@@ -26,18 +28,20 @@
     }
     .cont1{
     	font-size:32px;
+    	color:royalblue;
     }
     .cont2{
     	font-size:32px;
+    	color:royalblue;
     }
-    .cont2{
+   /* .cont2{
     	font-size:26px;
-    }
+    }*/
     .colbox{
     	width:30px;
     	height:20px;
     	display:inline-block;
-    	border:1px;
+    	border:2px solid royalblue;
     	float:left;
     }
 
@@ -53,8 +57,9 @@
     	margin:auto;
     }
     .submitbtn{
-    	font-size: 22px;
+    	font-size: 32px;
     	font-family:cursive;
+    	background-color:royalblue;
     }
     #colorchoosecontent_div{
     	width:450px;
