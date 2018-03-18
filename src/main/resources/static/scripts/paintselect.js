@@ -23,6 +23,7 @@
     	    	shtxt = "<p>Chosen:<br>" + shname + "<br>" + shcolor + "</p>";
     	    	$("#chosencolor").html(shtxt);
     	    	$("#chosencolor").css("background-color",shcolor );
+    	    	$("#chosencolor").data("clrshade",shcolor);
     	    });
     	    $("#" + dmobj).append($nobj);
 
@@ -78,13 +79,13 @@
 
 	function dummysubmit(){
 		selroom = $(".thumbnail.ui-selected").attr('id');
-		selcolor = $("#colorname").data("clrshade");
+		selcolor = $("#chosencolor").data("clrshade");
 
 		
         url="paintroom.html?rmid=" + selroom + "&selcolor=" + selcolor.slice(1);
-        $("#formroom").val(selroom);
-        $("#formcolor").val(selcolor.slice(1));
-        console.log($("#formroom").val()) ;
+        $("#selroom").val(selroom);
+        $("#selcolor").val(selcolor.slice(1));
+        console.log($("#selroom").val()) ;
         $("#submitform").submit();
         
 

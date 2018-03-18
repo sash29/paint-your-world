@@ -47,8 +47,8 @@
       </div>
     
       <form id="submitform" method="post">
-          <input id="formroom" name="selroom" style="display:none" type="text"></input>
-          <input id="formcolor" name="selcolor" style="display:none" type="text"></input>
+          <input id="selroom" name="selroom" style="display:none" type="text"></input>
+          <input id="selcolor" name="selcolor" style="display:none" type="text"></input>
           <div class="tcont cont2">3...And click</div> 
           <button id="submitbtn">Transform</button>
       </form>
@@ -78,11 +78,11 @@
     $().ready(function(){
     	createcolorfamily("div_colorfamily");
     	createcolorboxes("red");
-    	/*
-    	$( "button, input, a" ).click( function( event ) {
+    	
+    	$( "button, input" ).click( function( event ) {
            event.preventDefault();
          } );
-         */
+        
 
     	addcolboxhover();
 
@@ -94,7 +94,7 @@
     		addcolboxhover();
     	});    		
 
-    	$("#go").click(function(){
+    	$("#submitbtn").click(function(){
     		dummysubmit();
     	});
 

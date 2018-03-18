@@ -1,6 +1,7 @@
  body{
     font-family:cursive;
     background-color: #FFCC00;
+    border:5px solid royalblue;
 	}
 	
  p {
@@ -85,8 +86,7 @@
 
     #transf_div{
         position: relative;
-        
-
+     
     }
     #tranf_desc{
         display:inline-block;

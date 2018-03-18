@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <link th:href="@{/css/masthead.css}" rel="stylesheet" />	
+    <link th:href="@{/css/normalize.css}" rel="stylesheet" />
+	<link th:href="@{/css/styles.css}" rel="stylesheet" />
+
+</head>
+<body>
+
+   <div th:replace="template :: masthead"></div>
+   <div th:replace="template :: navigation"></div>
+   
+	<h1>About Us</h1>
+    <p>We make natural, low-VOC plant-based, interior/exterior paints and finishes free from petrochemicals and solvents. 
+    	We also offers water-based, nontoxic wood finishes and sealers containing no VOCs and no heavy metals.</p>
+   	<h1>Contact Us to place order or for more information:</h1>
+    <p> email: pyw@somemail.com</p>
+    <p> phone: 314-934-2345</p>
+</body>
+</html>

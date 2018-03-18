@@ -19,6 +19,7 @@
                 <td><label for="username">Username</label></td>
                 <td>
                     <input name="username" type="text" th:value="${username}"></input>
+                    <span class="error" th:text="${login_error}"></span> 
                 </td>
             </tr>
             <tr>

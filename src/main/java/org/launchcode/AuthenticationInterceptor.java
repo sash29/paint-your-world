@@ -11,6 +11,7 @@ import org.launchcode.pyw.controllers.AbstractController;
 import org.launchcode.pyw.models.User;
 import org.launchcode.pyw.models.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
@@ -20,28 +21,32 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
     
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
+    public boolean preHandle(HttpServletRequest request,  HttpServletResponse response, Object handler) throws IOException {
+    	
+    	String[] a = new String [] {"paintroom", "ContactUs"};
+        List<String> authPages = Arrays.asList(a);
+        System.out.println("preHandle");
+        System.out.println(request.getRequestURI());
 
-        List<String> authPages = Arrays.asList("/paintroom");
-
-        // Require sign-in for auth pages
+        // Require log-in for auth pages
         if ( authPages.contains(request.getRequestURI()) ) {
 
         	boolean isLoggedIn = false;
-        	User user;
-        	//get session frm request, then get uid frm that session, then convert it into Integer and assign to variable
+        	
+        	//get session frm request, then get uid frm that session, then convert into Integer and assign to variable
             Integer userId = (Integer) request.getSession().getAttribute(AbstractController.userSessionKey);
 
-            if (userId != null) {
-            	user = userDao.findByUid(userId);
+            if (userId != null) { 
+            User user = userDao.findByUid(userId);
             	
-            	if (user != null) {
+            	if (user != null) { // if particular user exists in db
             		isLoggedIn = true;
             	}
             }
 
-            // If user not logged in, redirect to login page
-            if (!isLoggedIn) {
+            
+            if (!isLoggedIn) {// If user not logged in, redirect to login page
+            	//model.addAttribute("error","You have to be logged in to proceed further");
                 response.sendRedirect("/login");
                 return false;
             }

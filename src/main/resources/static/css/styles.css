@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    width: 800px;
+    width: 1000px;
     margin: 0 auto;
     padding: 10px;
 }
@@ -41,7 +41,7 @@ hr {
 #masthead{
 	display:grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto;
+  height: 130px;
 }
 
 nav ul {
@@ -58,7 +58,7 @@ nav ul li {
 
 #company_name_div{
         height:auto;
-        width:360px;
+        width:400px;
     }
 #logoimg{
         width:100%;

@@ -134,6 +134,7 @@
        }
        
        console.log(pchosencolor);
+       console.log(rmid);
        $("#chosencolor").css("backgroundColor",pchosencolor);
        lc = enableLC();
        uploadtoImgur(lc);

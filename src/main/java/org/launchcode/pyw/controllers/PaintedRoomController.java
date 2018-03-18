@@ -48,10 +48,10 @@ public class PaintedRoomController extends AbstractController {
 		String retStr = "paintselect";
 
 		if(isloggedin){
-			System.out.println("paintselect : " + selrm);
-			System.out.println("paintselect : " + selcol);
-			thisSession.putValue("selcolor", selcol);
-			thisSession.putValue("selroom", selrm);
+			System.out.println("paintselect returns : " + selrm);
+			System.out.println("paintselect returns : " + selcol);
+			thisSession.setAttribute("selcolor", selcol);
+			thisSession.setAttribute("selroom", selrm);
 			
 			model.addAttribute("selcolor", selcol);
 			model.addAttribute("selroom", selrm);
@@ -67,7 +67,8 @@ public class PaintedRoomController extends AbstractController {
 	@RequestMapping(value = "paintroom", method = RequestMethod.GET)
 	public String topaintroom(HttpServletRequest request, Model model) {
 		HttpSession thisSession = request.getSession();
-		
+		System.out.println("paintroom");
+
 	//	@SuppressWarnings("deprecation")
 		String selrm = thisSession.getValue("selroom").toString() ;
 		String selcol =  thisSession.getValue("selcolor").toString() ;
