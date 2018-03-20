@@ -77,24 +77,23 @@
 
     $().ready(function(){
     	createcolorfamily("div_colorfamily");
-    	createcolorboxes("red");
+    	createcolorboxes("red"); //default display of primary colorbox of "REDS" when the page loads
     	
-    	$( "button, input" ).click( function( event ) {
+    	$( "button, input" ).click( function( event ) { // to prevent automatic submit
            event.preventDefault();
          } );
         
-
-    	addcolboxhover();
+    	addcolboxhover(); // display shade when hovered on
 
     	$(".colorselector").on("click", function(e){
     		obj = e.target.id;
     		clr = obj.split('-')[1];
     		console.log(clr);
-    		createcolorboxes(clr);
+    		createcolorboxes(clr);// creating  selected primary colorbox.e.g. yellows
     		addcolboxhover();
     	});    		
 
-    	$("#submitbtn").click(function(){
+    	$("#submitbtn").click(function(){ // collecting the selected room and the selected shade
     		dummysubmit();
     	});
 

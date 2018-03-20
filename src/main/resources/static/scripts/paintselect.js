@@ -50,7 +50,6 @@
     	
     }
 
-
     function addcolboxhover(){
 		$(".colbox").hover(function(){
 			clr= $(this).css("background-color");
@@ -80,13 +79,11 @@
 	function dummysubmit(){
 		selroom = $(".thumbnail.ui-selected").attr('id');
 		selcolor = $("#chosencolor").data("clrshade");
-
 		
         url="paintroom.html?rmid=" + selroom + "&selcolor=" + selcolor.slice(1);
         $("#selroom").val(selroom);
         $("#selcolor").val(selcolor.slice(1));
         console.log($("#selroom").val()) ;
         $("#submitform").submit();
-        
-
+      
 	}

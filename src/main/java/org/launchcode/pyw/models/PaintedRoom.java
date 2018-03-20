@@ -25,7 +25,6 @@ public class PaintedRoom extends AbstractEntity {
 
 	private String roomname;
 	private String imgururl;
-	//private int author_uid;
 	private User author;
 	private Date created;
 	private Date modified;
@@ -37,10 +36,8 @@ public class PaintedRoom extends AbstractEntity {
 		super();
 		
 		this.roomname = roomname;
-		
 		this.imgururl = imgururl;
 		this.author = author;
-		//this.author_uid = author.getUid();
 		this.created = new Date();
 		this.updated();
 		

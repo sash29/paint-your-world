@@ -80,10 +80,9 @@ public class PaintedRoomController extends AbstractController {
 		return "paintroom";
 	}
 	
-	@RequestMapping(value = "paintroom", method = RequestMethod.POST)
+	@RequestMapping(value = "paintroom", method = RequestMethod.POST)//Saving painted room in DB on click of "save your work" button
 	public String roomdesigned(HttpServletRequest request, Model model) {
 
-		// get the user
 		HttpSession thisSession = request.getSession();
 		User author = getUserFromSession( thisSession);
 	
@@ -96,7 +95,7 @@ public class PaintedRoomController extends AbstractController {
 		return "paintselect";
 	}
 
-	@RequestMapping(value = "rooms", method = RequestMethod.GET)
+	@RequestMapping(value = "rooms", method = RequestMethod.GET)// Gallery link method
 	public String viewrooms(HttpServletRequest request, Model model) {
 		HttpSession thisSession = request.getSession();
 		Boolean isloggedin = isUserLoggedIn(thisSession);
